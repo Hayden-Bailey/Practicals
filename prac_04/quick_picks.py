@@ -4,27 +4,24 @@ Quick Pick Lottery Ticket Generator
 
 import random
 
-RANDOM_PICKS = []
-
 
 def main():
     pick_amount = int(input("How many quick picks? "))
 
     for i in range(pick_amount):
-        generate_picks()
-        RANDOM_PICKS.sort()
-        for number in RANDOM_PICKS:
-            print('{:2}'.format(number), end=' ')
-        print('')
-        RANDOM_PICKS.clear()
+        random_picks = []
+        generate_picks(random_picks)
+        random_picks.sort()
+        print(" ".join(['{:2}'.format(number) for number in random_picks]))
+        random_picks.clear()
 
 
-def generate_picks():
+def generate_picks(random_picks):
     for index in range(6):
         random_number = random.randint(1, 45)
-        while random_number in RANDOM_PICKS:
+        while random_number in random_picks:
             random_number = random.randint(1, 45)
-        RANDOM_PICKS.append(random_number)
+        random_picks.append(random_number)
 
 
 main()
