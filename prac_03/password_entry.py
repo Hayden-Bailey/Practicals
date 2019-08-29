@@ -10,8 +10,9 @@ def print_asterisks(password):
 
 
 def get_password():
-    password = input('Input password (min 7 characters): ')
-    while len(password) <= 6:
+    minimum_length = 7
+    password = input('Input password (min {} characters): '.format(minimum_length))
+    while len(password) < minimum_length:
         password = input('Incorrect length. Input password: ')
     return password
 
