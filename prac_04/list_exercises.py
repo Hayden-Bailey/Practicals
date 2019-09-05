@@ -2,10 +2,14 @@
 List Exercises
 """
 
+input_number = int(input('Number 1: '))
 numbers = []
-for i in range(5):
-    number = int(input('Number: '))
-    numbers.append(number)
+index = 1
+while input_number >= 0:
+    numbers.append(input_number)
+    index += 1
+    input_number = int(input('Number {}: '.format(index)))
+
 
 print("The first number is {}".format(numbers[0]))
 print("The last number is {}".format(numbers[-1]))
